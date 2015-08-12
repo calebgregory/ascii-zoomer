@@ -1,0 +1,20 @@
+body {
+  background: #000;
+  color: #fff;
+}
+
+pre::selection {
+  background: #000; /* WebKit/Blink Browsers */
+}
+
+.container {
+  max-width: 1000px;
+  max-height: 1000px;
+  z-index: 2;
+}
+
+.container pre {
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+}
