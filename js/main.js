@@ -1,6 +1,7 @@
 var clicking = false
   , fontSize = 13
-  , currY;
+  , currY
+  , contained = true;
 
 $('.container').mousedown(function(){
   clicking = true;
@@ -33,10 +34,24 @@ $(document).mouseup(function(){
   $('.movestatus').text('click released, no more move event');
 })
 
-$('#no-container').on('click', function(e) {
-  $('.container').css('max-height', 1000);
-  $('.container').css('max-width', 1500);
-  $('.container pre').css('max-height', 1000);
-  $('.container pre').css('max-width', 1500);
+function toggleContainer(clicker) {
+  if(contained) {
+    $('.container').css('max-height', 1000);
+    $('.container').css('max-width', 1500);
+    $('.container pre').css('max-height', 1000);
+    $('.container pre').css('max-width', 1500);
+    $(clicker).text('put this back in its damn container');
+    contained = false;
+  } else {
+    $('.container').css('max-height', 500);
+    $('.container').css('max-width', 500);
+    $('.container pre').css('max-height', 500);
+    $('.container pre').css('max-width', 500);
+    $(clicker).text('get rid of this damn container');
+    contained = true;
+  }
+}
+$('#toggle-container').on('click', function(e) {
+  toggleContainer(this);
   e.preventDefault();
 })
