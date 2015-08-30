@@ -15,13 +15,10 @@ $('.container').mousedown(function(){
 
     if(e.pageY <= currY - 5 && fontSize < 28) {
       if($(window).width() < $('pre').width()) return;
-      console.log('up');
       fontSize++;
     } else if(e.pageY > currY + 5 && fontSize > 4) {
-      console.log('down');
       fontSize--;
     }
-    console.log(currY,e.pageY,fontSize)
     currY = e.pageY;
 
     $('pre').css('font-size',fontSize+'px');
